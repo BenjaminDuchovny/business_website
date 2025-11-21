@@ -1,7 +1,9 @@
 import {useNavigate} from "react-router";
 import {Outlet} from "react-router";
-import {MobileDateTimePicker} from "@mui/x-date-pickers";
+import dayjs from 'dayjs';
+import {LocalizationProvider, MobileDateTimePicker} from "@mui/x-date-pickers";
 import './App.css'
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 // import {useState} from "react";
 
 
@@ -47,13 +49,15 @@ export function Services(){
             </div>
             <div className = "calander">
                 <h5>Book when you want your car to be cleaned here</h5>
-                <MobileDateTimePicker onAccept={(value)=>{let dates = [];
-                    if(localStorage.getItem("timesBooked") != null){
-                        dates = JSON.parse(localStorage.getItem("timesBooked") as string);
-                    }
-                    dates.push(value);
-                    localStorage.setItem("timesBooked", JSON.stringify(dates));
-                }} />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <MobileDateTimePicker onAccept={(value)=>{let dates = [];
+                        if(localStorage.getItem("timesBooked") != null){
+                            dates = JSON.parse(localStorage.getItem("timesBooked") as string);
+                        }
+                        dates.push(value);
+                        localStorage.setItem("timesBooked", JSON.stringify(dates));
+                    }} defaultValue={dayjs(new Date())}/>
+                </LocalizationProvider>
             </div>
         </div>
     )
@@ -85,7 +89,7 @@ export function Confirmation(){
     // }
      return(
          <div className = {"confirmation"}>
-
+hi
          </div>
 
     )
