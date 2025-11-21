@@ -75,12 +75,12 @@ export function Confirmation(){
             // }
     //         const [items] = useState(getItems("daysBooked"));
     //
-    //         fuction dayOfWeek(dayOfWeek: number){
+    //         function dayOfWeek(dayOfWeek: number){
     //             if(dayOfWeek == 0){
     //                 return "Sunday"
     //             }
     // }
-    // fuction month(monthNumber: number){
+    // function month(monthNumber: number){
     //
     // }
      return(
